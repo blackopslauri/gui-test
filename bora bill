@@ -19,12 +19,6 @@ local images = {
     ['arrow_down'] = "https://i.imgur.com/tVqy0nL.png";
     ['arrow_up'] = "https://i.imgur.com/SL9cbQp.png";
 }
-for i,v in next, images do
-    if not isfile(settings.folder_name..'/assets/'..i..'.ln') then
-        writefile(settings.folder_name..'/assets/'..i..'.ln', bxor:encrypt(game:HttpGet(v), "4XGudgFuutoHUM2Ctwsq4YrQ"))
-    end
-    images[i] = bxor:decrypt(readfile(settings.folder_name..'/assets/'..i..'.ln'), "4XGudgFuutoHUM2Ctwsq4YrQ")
-end
 
 local services = setmetatable({}, {
     __index = function(_, k)
